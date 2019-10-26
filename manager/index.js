@@ -4,8 +4,20 @@ exports.register = (server, options) => {
     path: "/",
     handler: (request, h) => {
       return h.view("manager/list.html", {
-        test: "this is a test",
-        moreData: "WHOA MORE DATA"
+        hours: [
+          {
+            enteredBy: "user1",
+            hours: 40
+          },
+          {
+            enteredBy: "user2",
+            hours: 45
+          },
+          {
+            enteredBy: "user3",
+            hours: 80
+          }
+        ]
       });
     }
   });
