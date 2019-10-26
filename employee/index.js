@@ -7,6 +7,7 @@ exports.register = (server, options) => {
     method: "POST",
     path: "/shift",
     config: {
+      auth: "simple",
       validate: {
         payload: Joi.object({
           start: Joi.date()
@@ -22,7 +23,10 @@ exports.register = (server, options) => {
       }
     },
     handler: (request, h) => {
-      return request.payload;
+      return {
+        payload: request.payload,
+        credentials: request.auth.credentials
+      };
     }
   });
 };

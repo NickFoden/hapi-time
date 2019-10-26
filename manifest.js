@@ -27,6 +27,9 @@ module.exports = {
         }
       },
       {
+        plugin: require("./auth")
+      },
+      {
         plugin: require("./home")
       },
       {
