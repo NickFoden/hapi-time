@@ -16,7 +16,7 @@ module.exports = {
         plugin: require("@hapi/inert")
       },
       {
-        plugin: "vision",
+        plugin: "@hapi/vision",
         options: {
           engines: {
             html: require("handlebars")
@@ -28,10 +28,16 @@ module.exports = {
         plugin: require("./home")
       },
       {
-        plugin: require("./employee")
+        plugin: require("./manager"),
+        routes: {
+          prefix: "/manager"
+        }
       },
       {
-        plugin: require("./manager")
+        plugin: require("./employee"),
+        routes: {
+          prefix: "/employee"
+        }
       }
     ]
   }
