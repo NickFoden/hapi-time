@@ -23,7 +23,12 @@ module.exports = {
           },
           path: __dirname,
           layout: true,
-          layoutPath: "templates/layouts"
+          layoutPath: "templates/layouts",
+          context: request => {
+            return {
+              credentials: request.auth.credentials
+            };
+          }
         }
       },
       {

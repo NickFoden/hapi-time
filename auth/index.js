@@ -50,6 +50,18 @@ exports.register = async server => {
       }
     }
   });
+
+  server.route({
+    method: "GET",
+    path: "/logout",
+    config: {
+      auth: "session"
+    },
+    handler: function(request, h) {
+      request.cookieAuth.clear();
+      return h.redirect("/");
+    }
+  });
 };
 
 exports.pkg = {

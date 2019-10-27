@@ -16,11 +16,12 @@ const users = {
 module.exports.validate = async (request, username, password, h) => {
   const user = users[username];
   if (!user) {
+    console.log("no user ", request);
     return { credentials: null, isValid: false };
   }
 
   const isValid = password === user.password;
   const credentials = { id: user.id, username: user.username };
-
+  console.log("valid " + valid + " request " + request);
   return { isValid, credentials };
 };
