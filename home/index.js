@@ -14,8 +14,26 @@ exports.register = server => {
   server.route({
     method: "GET",
     path: "/",
+    handler: (request, h) => {
+      return h.view(
+        "home/unauthenticated.html",
+        {
+          next: request.query.next
+        },
+        {
+          layout: false
+        }
+      );
+    }
+  });
+  server.route({
+    method: "GET",
+    path: "/home",
+    config: {
+      auth: "session"
+    },
     handler: {
-      file: "index.html"
+      view: "home/home.html"
     }
   });
 };

@@ -1,4 +1,5 @@
 "use strict";
+require("dotenv").config();
 
 const Glue = require("@hapi/glue");
 const manifest = require("./manifest");
